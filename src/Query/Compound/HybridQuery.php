@@ -38,7 +38,7 @@ class HybridQuery implements BuilderInterface
      *
      * @var BuilderInterface[]
      */
-    private $_queries = [];
+    private $queries = [];
 
     /**
      * Initializes Hybrid query.
@@ -59,7 +59,7 @@ class HybridQuery implements BuilderInterface
      */
     public function addQuery(BuilderInterface $query)
     {
-        $this->_queries[] = $query;
+        $this->queries[] = $query;
 
         return $this;
     }
@@ -71,7 +71,7 @@ class HybridQuery implements BuilderInterface
      */
     public function getQueries()
     {
-        return $this->_queries;
+        return $this->queries;
     }
 
     /**
@@ -92,7 +92,7 @@ class HybridQuery implements BuilderInterface
     public function toArray()
     {
         $query = [];
-        foreach ($this->_queries as $subQuery) {
+        foreach ($this->queries as $subQuery) {
             $query[] = $subQuery->toArray();
         }
         $output = $this->processArray(['queries' => $query]);
